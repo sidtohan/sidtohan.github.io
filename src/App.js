@@ -18,11 +18,13 @@ const App = () => {
     "Contact",
   ];
 
+  const aboutMe = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit officia impedit vel, laudantium accusamus, possimus minus molestias culpa doloribus natus eos. In molestias doloremque delectus est, fuga aperiam ea.`;
+  const pic = null;
   return (
     <>
       <Header sections={sections} name={name} />
       <Welcome />
-      <About />
+      <About data={aboutMe} pic={null} />
       <Skills />
       <Projects />
       <Achievements />
