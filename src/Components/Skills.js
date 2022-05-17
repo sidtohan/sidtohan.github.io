@@ -1,6 +1,12 @@
-import React from 'react';
+import React from "react";
 
-const Skills = () => {
-    return <section className="skills"></section>
-}
+// Skills Section
+const Skills = ({ skills }) => {
+  // Skills is list of skills
+  return (
+    <section className="skills">
+      <h2 className="section-heading">I am skilled in</h2>
+    </section>
+  );
+};
 export default Skills;

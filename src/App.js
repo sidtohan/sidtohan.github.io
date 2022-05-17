@@ -1,4 +1,7 @@
+// Libraries
 import React from "react";
+
+// Components
 import Header from "./Components/Header";
 import Welcome from "./Components/Welcome";
 import About from "./Components/About";
@@ -8,7 +11,9 @@ import Achievements from "./Components/Achievements";
 import Contact from "./Components/Contact";
 
 const App = () => {
-  const name = "sidtohan";
+  // Variables/ Props
+  // Header
+  const uname = "sidtohan";
   const sections = [
     "Home",
     "About",
@@ -18,14 +23,55 @@ const App = () => {
     "Contact",
   ];
 
-  const aboutMe = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit officia impedit vel, laudantium accusamus, possimus minus molestias culpa doloribus natus eos. In molestias doloremque delectus est, fuga aperiam ea.`;
+  // Welcome
   const pic = null;
+
+  // About Me
+  const fname = "Siddhant Tohan";
+  const aboutMe = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit officia impedit vel, laudantium accusamus, possimus minus molestias culpa doloribus natus eos. In molestias doloremque delectus est, fuga aperiam ea.`;
+
+  // Skills
+  const skills = [
+    {
+      skillName: "HTML",
+      icon: "",
+    },
+    {
+      skillName: "CSS",
+      icon: "",
+    },
+    {
+      skillName: "Javascript",
+      icon: "",
+    },
+    {
+      skillName: "React",
+      icon: "",
+    },
+    {
+      skillName: "SASS",
+      icon: "",
+    },
+    {
+      skillName: "node.js",
+      icon: "",
+    },
+    {
+      skillName: "Redux",
+      icon: "",
+    },
+    {
+      skillName: "Python",
+      icon: "",
+    },
+  ];
+
   return (
     <>
-      <Header sections={sections} name={name} />
-      <Welcome />
-      <About data={aboutMe} pic={null} />
-      <Skills />
+      <Header sections={sections} name={uname} />
+      <Welcome pic={pic} />
+      <About aboutMe={aboutMe} name={fname} />
+      <Skills skills={skills} />
       <Projects />
       <Achievements />
       <Contact />
