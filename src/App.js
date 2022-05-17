@@ -66,13 +66,21 @@ const App = () => {
     },
   ];
 
+  // Projects
+  const projects = [
+    {
+      projectName: "Weather App",
+      projectDesc:
+        "uses OpenWeatherAPI to display the weather of a specified city",
+    },
+  ];
   return (
     <>
       <Header sections={sections} name={uname} />
       <Welcome pic={pic} />
       <About aboutMe={aboutMe} name={fname} />
       <Skills skills={skills} />
-      <Projects />
+      <Projects projects={projects} />
       <Achievements />
       <Contact />
     </>
