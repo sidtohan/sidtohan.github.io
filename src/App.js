@@ -74,6 +74,14 @@ const App = () => {
         "uses OpenWeatherAPI to display the weather of a specified city",
     },
   ];
+
+  // Achievements
+  const achievements = [
+    {
+      achievement: "",
+      logo: "",
+    },
+  ];
   return (
     <>
       <Header sections={sections} name={uname} />
@@ -81,7 +89,7 @@ const App = () => {
       <About aboutMe={aboutMe} name={fname} />
       <Skills skills={skills} />
       <Projects projects={projects} />
-      <Achievements />
+      <Achievements achievements={achievements} />
       <Contact />
     </>
   );
