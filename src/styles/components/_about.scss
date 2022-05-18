@@ -1,0 +1,33 @@
+// Colors
+@use "../abstracts/colors" as *;
+
+// Font
+@use "../abstracts/typography" as *;
+
+@mixin style {
+  .about-me {
+    padding: 0 10%;
+    font-size: $fontSizeSmall;
+    background-color: $secondary;
+    color: $font-color;
+    font-weight: 500;
+
+    .about-me-name {
+      display: block;
+      color: $primary;
+      font-size: $fontSizeMedium;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .about-me-header {
+      white-space: nowrap;
+      .about-me-title {
+        display: inline-block;
+        text-shadow: 0.01rem 0.01rem 0.02rem $primary;
+      }
+    }
+    .about-me-para {
+      margin: 0.2rem 0;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+// Import Colors
+@use "../abstracts/colors" as *;
+
+@mixin style {
+  .welcome {
+    background-color: $secondary;
+  }
+}

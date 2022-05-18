@@ -24,12 +24,17 @@ const App = () => {
   ];
 
   // Welcome
-  const pic = "siddhant.jpg";
+  const pic = "pfp.png";
 
   // About Me
   const fname = "Siddhant Tohan";
-  const aboutMe = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt reprehenderit officia impedit vel, laudantium accusamus, possimus minus molestias culpa doloribus natus eos. In molestias doloremque delectus est, fuga aperiam ea.`;
-
+  const aboutMe = [
+    `
+  Currently learning more about the MERN Stack, and many other technologies.
+  
+  `,
+    `Pursuing a B.Tech degree from Netaji Subhas University of Technology in the field of Mathematics and Computing.`,
+  ];
   // Skills
   const skills = [
     {
