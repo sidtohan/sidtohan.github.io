@@ -24,7 +24,7 @@ const App = () => {
   ];
 
   // Welcome
-  const pic = null;
+  const pic = "siddhant.jpg";
 
   // About Me
   const fname = "Siddhant Tohan";

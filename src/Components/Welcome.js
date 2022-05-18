@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
+// 3d
+import { TextureLoader } from "three/src/loaders/TextureLoader";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+
+const CoinRing = ({ position }) => {
+  const ringRef = useRef(null);
+  const { viewport } = useThree();
+  useFrame(() => {
+    ringRef.current.rotation.y -= 0.01;
+  });
+  return (
+    <mesh position={position} scale={viewport.width / 20} ref={ringRef}>
+      <torusBufferGeometry args={[4, 0.5, 40, 50]} />
+      <meshLambertMaterial color={0xf44d4d} />
+    </mesh>
+  );
+};
+
+const Coin = ({ pic, position }) => {
+  // Load the Images
+  const textureMap = useLoader(TextureLoader, pic);
+
+  const coinRef = useRef(null);
+  const { viewport } = useThree();
+
+  useEffect(() => {
+    if (coinRef) coinRef.current.rotation.x = Math.PI / 2;
+  }, [coinRef]);
+
+  useFrame(() => {
+    coinRef.current.rotation.z += 0.01;
+  });
+  const obj = (
+    <mesh position={position} scale={viewport.width / 20} ref={coinRef}>
+      <cylinderGeometry args={[4, 4, 0.5, 64]} />
+      <meshBasicMaterial map={textureMap} />
+    </mesh>
+  );
+  return obj;
+};
 
 const Welcome = ({ pic }) => {
   return (
     <section className="welcome">
-      {/* Some canvas/ three.js stuff here*/}
+      <Canvas
+        style={{
+          height: "50vh",
+        }}
+      >
+        <ambientLight intensity={0.5} color={0xffffff} />
+        <spotLight intensity={1} color={0xffffff} position={[0, 10, -5]} />
+        <OrbitControls />
+        <Coin position={[0, 0, 0]} pic={pic} />
+        <CoinRing position={[0, 0, 0]} />
+      </Canvas>
     </section>
   );
 };
