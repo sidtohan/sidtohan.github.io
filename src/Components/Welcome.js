@@ -51,7 +51,7 @@ const Welcome = ({ pic }) => {
         }}
       >
         <ambientLight intensity={0.5} color={0xffffff} />
-        <pointLight color={0xffffff} position={[5, 5, 5]} />
+        <pointLight color={0xffffff} position={[5, 2, 0]} />
         <OrbitControls />
         <Coin position={[0, 0, 0]} pic={pic} />
         <CoinRing position={[0, 0, 0]} />
