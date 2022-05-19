@@ -12,6 +12,9 @@
     color: $font-color;
     font-weight: 500;
 
+    .section-heading {
+      margin-bottom: 0;
+    }
     .about-me-name {
       display: block;
       color: $primary;

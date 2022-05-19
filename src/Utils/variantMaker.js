@@ -48,6 +48,17 @@ export const popInVariants = {
     transformOrigin: "center",
   },
 };
+// Pop In Variant Left Origin
+export const popInLeftVariants = {
+  initial: {
+    scale: 0,
+    transformOrigin: "left",
+  },
+  animate: {
+    scale: 1,
+    transformOrigin: "left",
+  },
+};
 
 // Expand Up
 export const expandUpVariants = {

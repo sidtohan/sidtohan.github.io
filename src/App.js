@@ -52,7 +52,22 @@ const App = () => {
     {
       projectName: "Weather App",
       projectDesc:
-        "uses OpenWeatherAPI to display the weather of a specified city",
+        "uses OpenWeatherAPI to display the weather of a specified city.",
+      liveLink: "https://sidtohan.github.io/Weather-App/",
+      repoLink: "https://github.com/sidtohan/Weather-App",
+    },
+    {
+      projectName: "Calculator",
+      projectDesc:
+        "uses vanilla JS and DOM manipulation to act as a reliable substitute for a desk calculator.",
+      liveLink: "https://sidtohan.github.io/Calculator",
+      repoLink: "https://github.com/sidtohan/Calculator",
+    },
+    {
+      projectName: "Oxygen and Ventilator Management System",
+      projectDesc:
+        "uses php and SQL to store and manage all information related to oxygen cylinders and ventilators.",
+      repoLink: "https://github.com/sidtohan/DBMS-Project",
     },
   ];
 
@@ -66,11 +81,11 @@ const App = () => {
   return (
     <>
       {/* <Header sections={sections} name={uname} /> */}
-      <Welcome pic={pic} />
+      {/* <Welcome pic={pic} />
       <About aboutMe={aboutMe} name={fname} />
-      <Skills skills={skills} />
-      {/* <Projects projects={projects} />
-      <Achievements achievements={achievements} />
+      <Skills skills={skills} /> */}
+      <Projects projects={projects} />
+      {/* <Achievements achievements={achievements} />
       <Contact /> */}
     </>
   );

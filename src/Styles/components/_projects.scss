@@ -1,0 +1,34 @@
+// Colors
+@use "../abstracts/colors" as *;
+
+// Font
+@use "../abstracts/typography" as *;
+
+@mixin style {
+  .projects {
+    color: $font-color;
+    .project-element-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .project-element {
+      .project-element-heading {
+        font-size: $fontSizeMedium;
+        color: $primary;
+      }
+      .project-element-text,
+      .project-element-live-link,
+      .project-element-repo-link {
+        font-size: $fontSizeSmall;
+      }
+      .project-element-live-link,
+      .project-element-repo-link {
+        a {
+          color: $primary;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
