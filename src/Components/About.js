@@ -19,7 +19,7 @@ const AboutMePara = (dat, i) => {
       variants={fadeInLeftVariants}
       initial="initial"
       animate="animate"
-      transition={spring(i + 3)}
+      transition={spring(i + 4, 150)}
     >
       {dat}
     </motion.p>
@@ -44,7 +44,7 @@ const About = ({ aboutMe, name }) => {
         variants={popInVariants}
         initial="initial"
         animate="animate"
-        transition={spring(1)}
+        transition={spring(1, 150)}
       >
         My name is
       </motion.h2>
@@ -54,7 +54,7 @@ const About = ({ aboutMe, name }) => {
         variants={popInVariants}
         initial="initial"
         animate="animate"
-        transition={spring(2)}
+        transition={spring(2, 150)}
       >
         Siddhant Tohan
       </motion.span>
@@ -63,7 +63,7 @@ const About = ({ aboutMe, name }) => {
         variants={fadeInLeftVariants}
         initial="initial"
         animate="animate"
-        transition={spring(3)}
+        transition={spring(3, 150)}
       >
         I'm a{" "}
         <AnimatePresence exitBeforeEnter>

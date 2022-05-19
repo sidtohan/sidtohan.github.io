@@ -37,38 +37,14 @@ const App = () => {
   ];
   // Skills
   const skills = [
-    {
-      skillName: "HTML",
-      icon: "",
-    },
-    {
-      skillName: "CSS",
-      icon: "",
-    },
-    {
-      skillName: "Javascript",
-      icon: "",
-    },
-    {
-      skillName: "React",
-      icon: "",
-    },
-    {
-      skillName: "SASS",
-      icon: "",
-    },
-    {
-      skillName: "node.js",
-      icon: "",
-    },
-    {
-      skillName: "Redux",
-      icon: "",
-    },
-    {
-      skillName: "Python",
-      icon: "",
-    },
+    "HTML5",
+    "CSS3",
+    "Javascript",
+    "React",
+    "SASS",
+    "node.js",
+    "Redux",
+    "Python",
   ];
 
   // Projects
@@ -89,13 +65,13 @@ const App = () => {
   ];
   return (
     <>
-      <Header sections={sections} name={uname} />
+      {/* <Header sections={sections} name={uname} /> */}
       <Welcome pic={pic} />
       <About aboutMe={aboutMe} name={fname} />
       <Skills skills={skills} />
-      <Projects projects={projects} />
+      {/* <Projects projects={projects} />
       <Achievements achievements={achievements} />
-      <Contact />
+      <Contact /> */}
     </>
   );
 };

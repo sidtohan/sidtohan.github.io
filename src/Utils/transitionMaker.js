@@ -4,11 +4,11 @@ const delayMaker = (delay) => {
 };
 
 // Returns spring
-export const spring = (delay) => {
+export const spring = (delay, stiffness) => {
   return {
     type: "spring",
     delay: delayMaker(delay),
-    stiffness: 150,
+    stiffness,
   };
 };
 

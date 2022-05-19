@@ -1,9 +1,11 @@
 // Fonts
 @use "abstracts/typography" as fonts;
+@use "abstracts/colors" as colors;
 
 // Partials
 @use "components/welcome" as welcome;
 @use "components/about" as about;
+@use "components/skills" as skills;
 
 // Google API Call
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap");
@@ -15,12 +17,17 @@
 }
 
 #root {
+  background-color: colors.$secondary;
   // Common Style
+  section {
+    padding: 0.3rem 10%;
+  }
   .section-heading {
     font-size: fonts.$fontSizeLarge;
   }
   @include welcome.style;
   @include about.style;
+  @include skills.style;
 }
 
 body,

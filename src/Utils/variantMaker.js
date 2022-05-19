@@ -1,4 +1,4 @@
-// Slide In Top
+// Slide In Top Down
 export const slideInTopDownVariants = {
   initial: {
     y: -30,
@@ -26,6 +26,17 @@ export const fadeInLeftVariants = {
   },
 };
 
+// Fade In Top
+export const fadeInTopVariants = {
+  initial: {
+    y: -40,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+};
 // Pop In Variants
 export const popInVariants = {
   initial: {
@@ -35,5 +46,21 @@ export const popInVariants = {
   animate: {
     scale: 1,
     transformOrigin: "center",
+  },
+};
+
+// Expand Up
+export const expandUpVariants = {
+  initial: {
+    scaleY: 0,
+    transformOrigin: "bottom center",
+  },
+  animate: {
+    scaleY: 1,
+    transformOrigin: "bottom center",
+  },
+  exit: {
+    scaleY: 0,
+    transformOrigin: "bottom center",
   },
 };

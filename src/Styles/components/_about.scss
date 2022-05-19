@@ -6,7 +6,7 @@
 
 @mixin style {
   .about-me {
-    padding: 0 10%;
+    overflow: hidden;
     font-size: $fontSizeSmall;
     background-color: $secondary;
     color: $font-color;
