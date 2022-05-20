@@ -1,11 +1,9 @@
-// Colors
-@use "../abstracts/colors" as *;
-
-// Font
-@use "../abstracts/typography" as *;
+// forward file
+@use "../abstracts/forward" as *;
 
 @mixin style {
   .projects {
+    overflow: hidden;
     color: $font-color;
     .project-element-holder {
       display: flex;

@@ -37,6 +37,19 @@ export const fadeInTopVariants = {
     opacity: 1,
   },
 };
+
+// Fade in Right
+export const fadeInRightVariants = {
+  initial: {
+    x: 20,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+  },
+};
+
 // Pop In Variants
 export const popInVariants = {
   initial: {

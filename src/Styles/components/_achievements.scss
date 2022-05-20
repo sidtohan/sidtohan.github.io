@@ -1,0 +1,53 @@
+// forward file
+@use "../abstracts/forward" as *;
+
+@mixin style {
+  .achievements {
+    background-color: $primary;
+    color: $secondary;
+    .achievements-holder {
+      position: relative;
+      padding: 0.2rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .achievements-holder::before {
+      border-radius: 0.5rem;
+      z-index: 0;
+      background-color: $secondary;
+      content: "";
+      position: absolute;
+      left: 10%;
+      transform: translateX(-70%);
+      height: 100%;
+      width: 0.1rem;
+    }
+    .achievement-element {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.3rem;
+      .achievement-element-text {
+        width: 80%;
+        font-size: $fontSizeMedium;
+      }
+      .achievement-element-logo-holder {
+        background-color: $secondary;
+        padding: 0.15rem;
+        border-radius: 50%;
+        z-index: 1;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

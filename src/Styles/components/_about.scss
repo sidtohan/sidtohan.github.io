@@ -1,8 +1,5 @@
-// Colors
-@use "../abstracts/colors" as *;
-
-// Font
-@use "../abstracts/typography" as *;
+// forward file
+@use "../abstracts/forward" as *;
 
 @mixin style {
   .about-me {

@@ -19,7 +19,7 @@ const ProjectElement = ({
   i,
 }) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.7 });
+  const [ref, inView] = useInView({ threshold: 0.9 });
 
   useEffect(() => {
     if (inView) {
@@ -49,26 +49,26 @@ const ProjectElement = ({
       {liveLink ? (
         <motion.p
           className="project-element-live-link"
-          variants={popInLeftVariants}
+          variants={fadeInLeftVariants}
           initial="initial"
           animate={controls}
           transition={spring(2, 150)}
         >
           Try it{" "}
-          <a href={liveLink} target="_blank">
+          <a href={liveLink} target="_blank" rel="noreferrer">
             here.
           </a>
         </motion.p>
       ) : null}
       <motion.p
         className="project-element-repo-link"
-        variants={popInLeftVariants}
+        variants={fadeInLeftVariants}
         initial="initial"
         animate={controls}
         transition={spring(3, 150)}
       >
         Check out the code{" "}
-        <a href={repoLink} target="_blank">
+        <a href={repoLink} target="_blank" rel="noreferrer">
           here.
         </a>
       </motion.p>

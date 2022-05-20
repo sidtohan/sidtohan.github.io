@@ -41,7 +41,7 @@ const SkillElement = ({ skill, i }) => {
       animate={controls}
       transition={tween(0)}
     >
-      {getIcon(skill, color)}
+      {getIcon(skill, color, "skill")}
       <p className="skill-element-text">{skill}</p>
       <AnimatePresence>
         {hovering ? (
@@ -51,7 +51,7 @@ const SkillElement = ({ skill, i }) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={tween(1)}
+            transition={tween(0)}
           ></motion.div>
         ) : null}
       </AnimatePresence>

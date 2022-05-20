@@ -74,10 +74,22 @@ const App = () => {
   // Achievements
   const achievements = [
     {
-      achievement: "",
-      logo: "",
+      achievement: "Grade 4/5 in Fullstack Open 2021",
+      logo: "helsinki",
+      date: "2021",
+    },
+    {
+      achievement: "Global Rank 2907 in Google Kickstart 2021",
+      logo: "google",
+      date: "2021",
+    },
+    {
+      achievement: "Global Rank 2970 in Google Hashcode 2022 Round 1",
+      logo: "google",
+      date: "2022",
     },
   ];
+
   return (
     <>
       {/* <Header sections={sections} name={uname} /> */}
@@ -85,8 +97,8 @@ const App = () => {
       <About aboutMe={aboutMe} name={fname} />
       <Skills skills={skills} />
       <Projects projects={projects} />
-      {/* <Achievements achievements={achievements} />
-      <Contact /> */}
+      <Achievements achievements={achievements} />
+      {/* <Contact /> */}
     </>
   );
 };
