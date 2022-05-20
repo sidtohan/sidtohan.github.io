@@ -2,6 +2,7 @@
   "name": "sidtohan.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sidtohan.github.io",
   "dependencies": {
     "@iconify/react": "^3.2.1",
     "@react-three/drei": "^9.11.0",
