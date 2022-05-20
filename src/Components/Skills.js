@@ -1,6 +1,7 @@
 // Lib
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // Utils
 import getIcon from "../Utils/iconMapper";
@@ -12,6 +13,9 @@ import {
 } from "../Utils/variantMaker";
 
 const SkillElement = ({ skill, i }) => {
+  const [ref, inView] = useInView({ threshold: 0.7 });
+  const controls = useAnimation();
+
   const [hovering, hover] = useState(false);
   const style = hovering
     ? {
@@ -19,16 +23,23 @@ const SkillElement = ({ skill, i }) => {
       }
     : null;
   const color = hovering ? "#f44d4d" : "#121226";
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("animate");
+    }
+  }, [inView, controls]);
   return (
     <motion.div
+      ref={ref}
       className="skill-element"
       onMouseEnter={() => hover(true)}
       onMouseLeave={() => hover(false)}
       style={style}
       variants={fadeInTopVariants}
       initial="initial"
-      animate="animate"
-      transition={tween(i + 2)}
+      animate={controls}
+      transition={tween(0)}
     >
       {getIcon(skill, color)}
       <p className="skill-element-text">{skill}</p>
@@ -40,7 +51,7 @@ const SkillElement = ({ skill, i }) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={tween(0)}
+            transition={tween(1)}
           ></motion.div>
         ) : null}
       </AnimatePresence>

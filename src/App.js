@@ -81,9 +81,9 @@ const App = () => {
   return (
     <>
       {/* <Header sections={sections} name={uname} /> */}
-      {/* <Welcome pic={pic} />
+      <Welcome pic={pic} />
       <About aboutMe={aboutMe} name={fname} />
-      <Skills skills={skills} /> */}
+      <Skills skills={skills} />
       <Projects projects={projects} />
       {/* <Achievements achievements={achievements} />
       <Contact /> */}

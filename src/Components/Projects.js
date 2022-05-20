@@ -1,6 +1,7 @@
 // Libraries
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // Utils
 import {
@@ -17,14 +18,22 @@ const ProjectElement = ({
   repoLink,
   i,
 }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.7 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("animate");
+    }
+  }, [controls, inView]);
   return (
-    <div className="project-element">
+    <div className="project-element" ref={ref}>
       <motion.h3
         className="project-element-heading"
         variants={popInLeftVariants}
         initial="initial"
-        animate="animate"
-        transition={spring(4 * i, 150)}
+        animate={controls}
+        transition={spring(0, 150)}
       >
         A {projectName}
       </motion.h3>
@@ -32,8 +41,8 @@ const ProjectElement = ({
         className="project-element-text"
         variants={fadeInLeftVariants}
         initial="initial"
-        animate="animate"
-        transition={spring(4 * i + 1, 150)}
+        animate={controls}
+        transition={spring(1, 150)}
       >
         that {projectDesc}
       </motion.p>
@@ -42,8 +51,8 @@ const ProjectElement = ({
           className="project-element-live-link"
           variants={popInLeftVariants}
           initial="initial"
-          animate="animate"
-          transition={spring(4 * i + 2, 150)}
+          animate={controls}
+          transition={spring(2, 150)}
         >
           Try it{" "}
           <a href={liveLink} target="_blank">
@@ -55,8 +64,8 @@ const ProjectElement = ({
         className="project-element-repo-link"
         variants={popInLeftVariants}
         initial="initial"
-        animate="animate"
-        transition={spring(4 * i + 3, 150)}
+        animate={controls}
+        transition={spring(3, 150)}
       >
         Check out the code{" "}
         <a href={repoLink} target="_blank">
