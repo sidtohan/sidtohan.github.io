@@ -11,18 +11,19 @@ import {
   expandUpVariants,
   fadeInTopVariants,
 } from "../Utils/variantMaker";
+import { primary, secondary, fontColor } from "../Utils/colors";
 
 const SkillElement = ({ skill, i }) => {
-  const [ref, inView] = useInView({ threshold: 0.7 });
+  const [ref, inView] = useInView({ threshold: 0.8 });
   const controls = useAnimation();
 
   const [hovering, hover] = useState(false);
   const style = hovering
     ? {
-        color: `#f44d4d`,
+        color: primary,
       }
     : null;
-  const color = hovering ? "#f44d4d" : "#121226";
+  const color = hovering ? primary : secondary;
 
   useEffect(() => {
     if (inView) {
@@ -41,9 +42,9 @@ const SkillElement = ({ skill, i }) => {
       animate={controls}
       transition={tween(0)}
     >
-      {getIcon(skill, color, "skill")}
+      {getIcon(skill, color, "bxl")}
       <p className="skill-element-text">{skill}</p>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {hovering ? (
           <motion.div
             className="skill-element-bg"

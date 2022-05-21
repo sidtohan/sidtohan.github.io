@@ -60,6 +60,10 @@ export const popInVariants = {
     scale: 1,
     transformOrigin: "center",
   },
+  exit: {
+    scale: 0,
+    transformOrigin: "center",
+  },
 };
 // Pop In Variant Left Origin
 export const popInLeftVariants = {

@@ -30,7 +30,7 @@ const AchievementElement = ({ achievement, i }) => {
         animate={controls}
         transition={spring(0, 150)}
       >
-        {getIcon(achievement.logo, "#fff", "achievement")}
+        {getIcon(achievement.logo, "#fff", "bxl")}
       </motion.div>
       <motion.p
         className="achievement-element-text"

@@ -1,0 +1,51 @@
+// forward file
+@use "../abstracts/forward" as *;
+
+@mixin style {
+  .contacts {
+    font-size: $fontSizeMedSmall;
+
+    .section-heading {
+      color: $font-color;
+    }
+    .contact-elements-holder {
+      margin: 0 auto;
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      .contact-element {
+        text-decoration: none;
+        color: $secondary !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0.1rem 0.3rem;
+        gap: 0.1rem;
+        z-index: 1;
+        position: relative;
+        transition: 0.32s ease-in-out;
+        .contact-element-text {
+          z-index: 1;
+        }
+        svg {
+          z-index: 1;
+          width: max(80%, 0.4rem);
+          height: auto;
+        }
+      }
+      .contact-element-bg {
+        z-index: -1;
+        padding-top: 0.2rem;
+        border-radius: 0.1rem;
+        position: absolute;
+        background-color: $font-color;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Achievements from "./Components/Achievements";
-import Contact from "./Components/Contact";
+import Contacts from "./Components/Contacts";
 
 const App = () => {
   // Variables/ Props
@@ -87,6 +87,13 @@ const App = () => {
     },
   ];
 
+  // Contacts
+  const contacts = [
+    { name: "Email", link: "siddhant.tohan.in@protonmail.com" },
+    { name: "LinkedIn", link: "https://linkedin.com/in/siddhant-tohan" },
+    { name: "Github", link: "https://github.com/sidtohan" },
+    { name: "Codechef", link: "https://codechef.com/users/siddhant_tohan" },
+  ];
   return (
     <>
       {/* <Header sections={sections} name={uname} /> */}
@@ -95,7 +102,7 @@ const App = () => {
       <Skills skills={skills} />
       <Projects projects={projects} />
       <Achievements achievements={achievements} />
-      {/* <Contact /> */}
+      <Contacts contacts={contacts} />
     </>
   );
 };

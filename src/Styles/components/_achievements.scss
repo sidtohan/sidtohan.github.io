@@ -7,7 +7,7 @@
     color: $secondary;
     .achievements-holder {
       position: relative;
-      padding: 0.2rem 0;
+      padding: 0.3rem 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
       grid-auto-rows: 1fr;
@@ -22,7 +22,7 @@
       background-color: $secondary;
       content: "";
       grid-column: 1/2;
-      height: 100%;
+      height: 110%;
       width: 0.1rem;
     }
     .achievement-element {
@@ -35,7 +35,7 @@
       grid-column-gap: 0.2rem;
 
       .achievement-element-text {
-        font-size: $fontSizeMedium;
+        font-size: $fontSizeMedSmall;
       }
       .achievement-element-logo-holder {
         background-color: $secondary;
@@ -46,9 +46,9 @@
         align-items: center;
         justify-content: center;
         grid-column: 1/2;
-        min-width: 0.8rem;
-        min-height: 0.8rem;
-        width: 100%;
+        min-width: 0.75rem;
+        min-height: 0.75rem;
+        width: 70%;
         height: auto;
         svg {
           display: block;
