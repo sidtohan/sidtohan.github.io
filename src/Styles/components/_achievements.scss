@@ -8,40 +8,48 @@
     .achievements-holder {
       position: relative;
       padding: 0.2rem 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      grid-auto-rows: 1fr;
+      justify-items: center;
+      align-items: center;
+      grid-row-gap: 0.3rem;
+      grid-column-gap: 0.2rem;
     }
-    .achievements-holder::before {
+    .achievements-holder-line {
       border-radius: 0.5rem;
       z-index: 0;
       background-color: $secondary;
       content: "";
-      position: absolute;
-      left: 10%;
-      transform: translateX(-70%);
+      grid-column: 1/2;
       height: 100%;
       width: 0.1rem;
     }
     .achievement-element {
-      display: flex;
-      justify-content: flex-start;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      justify-items: center;
       align-items: center;
-      gap: 0.3rem;
+      grid-column: 1/3;
+      grid-column-gap: 0.2rem;
+
       .achievement-element-text {
-        width: 80%;
         font-size: $fontSizeMedium;
       }
       .achievement-element-logo-holder {
         background-color: $secondary;
-        padding: 0.15rem;
+        padding: 0.1rem;
         border-radius: 50%;
         z-index: 1;
-        width: 20%;
         display: flex;
         align-items: center;
         justify-content: center;
+        grid-column: 1/2;
+        min-width: 0.8rem;
+        min-height: 0.8rem;
+        width: 100%;
+        height: auto;
         svg {
           display: block;
           width: 100%;

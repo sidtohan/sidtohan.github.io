@@ -42,7 +42,7 @@ const ProjectElement = ({
         variants={fadeInLeftVariants}
         initial="initial"
         animate={controls}
-        transition={spring(1, 150)}
+        transition={spring(2, 150)}
       >
         that {projectDesc}
       </motion.p>
@@ -52,7 +52,7 @@ const ProjectElement = ({
           variants={fadeInLeftVariants}
           initial="initial"
           animate={controls}
-          transition={spring(2, 150)}
+          transition={spring(3, 150)}
         >
           Try it{" "}
           <a href={liveLink} target="_blank" rel="noreferrer">
@@ -65,7 +65,7 @@ const ProjectElement = ({
         variants={fadeInLeftVariants}
         initial="initial"
         animate={controls}
-        transition={spring(3, 150)}
+        transition={spring(4, 150)}
       >
         Check out the code{" "}
         <a href={repoLink} target="_blank" rel="noreferrer">

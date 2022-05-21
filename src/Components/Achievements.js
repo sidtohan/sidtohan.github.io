@@ -6,11 +6,11 @@ import { useInView } from "react-intersection-observer";
 // Utils
 import { popInVariants, fadeInRightVariants } from "../Utils/variantMaker";
 import getIcon from "../Utils/iconMapper";
-import { spring, tween } from "../Utils/transitionMaker";
+import { spring } from "../Utils/transitionMaker";
 
-const AchievementElement = ({ achievement }) => {
+const AchievementElement = ({ achievement, i }) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ threshold: 0.9 });
 
   useEffect(() => {
     if (inView) {
@@ -18,7 +18,11 @@ const AchievementElement = ({ achievement }) => {
     }
   }, [controls, inView]);
   return (
-    <div className="achievement-element" ref={ref}>
+    <div
+      className="achievement-element"
+      ref={ref}
+      style={{ gridRow: `${i + 1}/${i + 2}` }}
+    >
       <motion.div
         className="achievement-element-logo-holder"
         variants={popInVariants}
@@ -33,7 +37,7 @@ const AchievementElement = ({ achievement }) => {
         variants={fadeInRightVariants}
         initial="initial"
         animate={controls}
-        transition={tween(1)}
+        transition={spring(2, 150)}
       >
         {achievement.achievement}
       </motion.p>
@@ -62,10 +66,15 @@ const Achievements = ({ achievements }) => {
         I have achieved
       </motion.h2>
       <div className="achievements-holder">
-        {achievements.map((achievement) => (
+        <div
+          className="achievements-holder-line"
+          style={{ gridRow: `1/${achievements.length + 1}` }}
+        ></div>
+        {achievements.map((achievement, i) => (
           <AchievementElement
             key={achievement.achievement}
             achievement={achievement}
+            i={i}
           />
         ))}
       </div>

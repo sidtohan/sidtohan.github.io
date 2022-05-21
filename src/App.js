@@ -76,17 +76,14 @@ const App = () => {
     {
       achievement: "Grade 4/5 in Fullstack Open 2021",
       logo: "helsinki",
-      date: "2021",
     },
     {
       achievement: "Global Rank 2907 in Google Kickstart 2021",
       logo: "google",
-      date: "2021",
     },
     {
-      achievement: "Global Rank 2970 in Google Hashcode 2022 Round 1",
+      achievement: "Global Rank 2970 in Google Hashcode 2022",
       logo: "google",
-      date: "2022",
     },
   ];
 
