@@ -4,5 +4,6 @@
 @mixin style {
   .welcome {
     background-color: $secondary;
+    height: 50vh;
   }
 }

@@ -12,7 +12,11 @@ const CoinRing = ({ position }) => {
     ringRef.current.rotation.y -= 0.01;
   });
   return (
-    <mesh position={position} scale={viewport.width / 20} ref={ringRef}>
+    <mesh
+      position={position}
+      scale={Math.min(0.6, viewport.width / 15)}
+      ref={ringRef}
+    >
       <torusBufferGeometry args={[4, 0.5, 40, 50]} />
       <meshPhongMaterial color={0xf44d4d} shininess={100} />
     </mesh>
@@ -34,7 +38,11 @@ const Coin = ({ pic, position }) => {
     coinRef.current.rotation.z += 0.01;
   });
   const obj = (
-    <mesh position={position} scale={viewport.width / 20} ref={coinRef}>
+    <mesh
+      position={position}
+      scale={Math.min(0.6, viewport.width / 15)}
+      ref={coinRef}
+    >
       <cylinderGeometry args={[4, 4, 0.5, 64]} />
       <meshBasicMaterial map={textureMap} color={0xffffff} />
     </mesh>
@@ -45,14 +53,10 @@ const Coin = ({ pic, position }) => {
 const Welcome = ({ pic }) => {
   return (
     <section className="welcome">
-      <Canvas
-        style={{
-          height: "50vh",
-        }}
-      >
+      <Canvas>
         <ambientLight intensity={0.5} color={0xffffff} />
         <pointLight color={0xffffff} position={[5, 2, 0]} />
-        <OrbitControls />
+        <OrbitControls makeDefault />
         <Coin position={[0, 0, 0]} pic={pic} />
         <CoinRing position={[0, 0, 0]} />
       </Canvas>
