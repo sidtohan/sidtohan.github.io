@@ -1,7 +1,7 @@
 // Slide In Top Down
 export const slideInTopDownVariants = {
   initial: {
-    y: -30,
+    y: "-100%",
     opacity: 0,
   },
   animate: {
@@ -9,7 +9,7 @@ export const slideInTopDownVariants = {
     opacity: 1,
   },
   exit: {
-    y: 30,
+    y: "+100%",
     opacity: 0,
   },
 };
@@ -90,5 +90,15 @@ export const expandUpVariants = {
   exit: {
     scaleY: 0,
     transformOrigin: "bottom center",
+  },
+};
+
+// Burger Variants
+export const burgerButtonVariants = {
+  line: {
+    rotateZ: 0,
+  },
+  cross: {
+    rotateZ: -45,
   },
 };

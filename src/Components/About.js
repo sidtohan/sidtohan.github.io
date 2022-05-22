@@ -14,7 +14,7 @@ import { spring, tween } from "../Utils/transitionMaker";
 const AboutMePara = (dat, i) => {
   return (
     <motion.p
-      className="about-me-para"
+      className="about-para"
       key={i}
       variants={fadeInLeftVariants}
       initial="initial"
@@ -38,7 +38,7 @@ const About = ({ aboutMe, name }) => {
   }, 2000);
 
   return (
-    <section className="about-me">
+    <section className="about">
       <motion.h2
         className="section-heading"
         variants={popInVariants}
@@ -50,7 +50,7 @@ const About = ({ aboutMe, name }) => {
       </motion.h2>
 
       <motion.span
-        className="about-me-name"
+        className="about-name"
         variants={popInVariants}
         initial="initial"
         animate="animate"
@@ -59,7 +59,7 @@ const About = ({ aboutMe, name }) => {
         Siddhant Tohan
       </motion.span>
       <motion.p
-        className="about-me-header"
+        className="about-header"
         variants={fadeInLeftVariants}
         initial="initial"
         animate="animate"
@@ -68,7 +68,7 @@ const About = ({ aboutMe, name }) => {
         I'm a{" "}
         <AnimatePresence exitBeforeEnter>
           <motion.span
-            className="about-me-title"
+            className="about-title"
             variants={slideInTopDownVariants}
             initial="initial"
             animate="animate"

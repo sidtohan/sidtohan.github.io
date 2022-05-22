@@ -1,5 +1,6 @@
 // Libraries
-import React from "react";
+import React, { useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 // Components
 import Header from "./Components/Header";
@@ -20,8 +21,9 @@ const App = () => {
     "Skills",
     "Projects",
     "Achievements",
-    "Contact",
+    "Contacts",
   ];
+  const burgerRef = useRef(null);
 
   // Welcome
   const pic = "pfp.png";
@@ -94,9 +96,11 @@ const App = () => {
     { name: "Github", link: "https://github.com/sidtohan" },
     { name: "Codechef", link: "https://codechef.com/users/siddhant_tohan" },
   ];
+
+  // All The Required Refs
   return (
     <>
-      {/* <Header sections={sections} name={uname} /> */}
+      <Header sections={sections} name={uname} ref={burgerRef} />
       <Welcome pic={pic} />
       <About aboutMe={aboutMe} name={fname} />
       <Skills skills={skills} />

@@ -3,6 +3,7 @@
 @use "abstracts/colors" as colors;
 
 // Partials
+@use "components/header" as header;
 @use "components/welcome" as welcome;
 @use "components/about" as about;
 @use "components/skills" as skills;
@@ -30,6 +31,7 @@
     font-size: fonts.$fontSizeLarge;
   }
   // Include the Mixin of all the required styles
+  @include header.style;
   @include welcome.style;
   @include about.style;
   @include skills.style;
