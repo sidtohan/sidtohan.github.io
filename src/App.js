@@ -1,6 +1,5 @@
 // Libraries
 import React, { useState } from "react";
-import { useInView } from "react-intersection-observer";
 
 // Components
 import Header from "./Components/Header";
@@ -15,6 +14,8 @@ const App = () => {
   // Variables/ Props
   // Header
   const [ifPrimary, setIfPrimary] = useState(true);
+  const [current, setCurrent] = useState(true);
+
   const uname = "sidtohan";
   const sections = [
     "Home",
@@ -100,13 +101,39 @@ const App = () => {
   // All The Required Refs
   return (
     <>
-      <Header sections={sections} name={uname} ifPrimary={ifPrimary} />
-      <Welcome pic={pic} setIfPrimary={setIfPrimary} />
-      <About aboutMe={aboutMe} name={fname} setIfPrimary={setIfPrimary} />
-      <Skills skills={skills} setIfPrimary={setIfPrimary} />
-      <Projects projects={projects} setIfPrimary={setIfPrimary} />
-      <Achievements achievements={achievements} setIfPrimary={setIfPrimary} />
-      <Contacts contacts={contacts} setIfPrimary={setIfPrimary} />
+      <Header
+        sections={sections}
+        name={uname}
+        ifPrimary={ifPrimary}
+        current={current}
+      />
+      <Welcome pic={pic} setIfPrimary={setIfPrimary} setCurrent={setCurrent} />
+      <About
+        aboutMe={aboutMe}
+        name={fname}
+        setIfPrimary={setIfPrimary}
+        setCurrent={setCurrent}
+      />
+      <Skills
+        skills={skills}
+        setIfPrimary={setIfPrimary}
+        setCurrent={setCurrent}
+      />
+      <Projects
+        projects={projects}
+        setIfPrimary={setIfPrimary}
+        setCurrent={setCurrent}
+      />
+      <Achievements
+        achievements={achievements}
+        setIfPrimary={setIfPrimary}
+        setCurrent={setCurrent}
+      />
+      <Contacts
+        contacts={contacts}
+        setIfPrimary={setIfPrimary}
+        setCurrent={setCurrent}
+      />
     </>
   );
 };

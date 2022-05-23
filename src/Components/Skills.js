@@ -1,7 +1,6 @@
 // Lib
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 // Components
 import SectionHeading from "./SectionHeading";
@@ -57,12 +56,14 @@ const SkillElement = ({ skill, i }) => {
 };
 
 // Skills Section
-const Skills = ({ skills, setIfPrimary }) => {
+const Skills = ({ skills, setIfPrimary, setCurrent }) => {
   // Skills is list of skills
   const ref = useSectionTrigger({
     setIfPrimary,
-    threshold: 0.7,
+    setCurrent,
+    threshold: 0.8,
     bgColor: primary,
+    sectionName: "Skills",
   });
 
   return (

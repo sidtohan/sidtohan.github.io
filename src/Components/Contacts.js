@@ -56,11 +56,13 @@ const ContactElement = ({ contact }) => {
     </motion.a>
   );
 };
-const Contact = ({ contacts, setIfPrimary }) => {
+const Contact = ({ contacts, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
-    threshold: 0.7,
+    setCurrent,
+    threshold: 0.8,
     bgColor: secondary,
+    sectionName: "Contacts",
   });
 
   return (

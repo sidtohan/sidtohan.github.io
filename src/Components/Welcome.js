@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from "react";
 
+// Utils
+import { secondary } from "../Utils/colors";
+
 // 3d
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+
+// Custom Hooks
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
 const CoinRing = ({ position }) => {
   const ringRef = useRef(null);
@@ -50,9 +56,16 @@ const Coin = ({ pic, position }) => {
   return obj;
 };
 
-const Welcome = ({ pic }) => {
+const Welcome = ({ pic, setIfPrimary, setCurrent }) => {
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    setCurrent,
+    threshold: 0.8,
+    sectionName: "home",
+    bgColor: secondary,
+  });
   return (
-    <section className="welcome">
+    <section className="welcome" ref={ref}>
       <Canvas>
         <ambientLight intensity={0.5} color={0xffffff} />
         <pointLight color={0xffffff} position={[5, 2, 0]} />

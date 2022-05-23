@@ -1,15 +1,22 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { primary, secondary } from "../Utils/colors";
+import { secondary } from "../Utils/colors";
 
-const useSectionTrigger = ({ setIfPrimary, threshold, bgColor }) => {
+const useSectionTrigger = ({
+  setIfPrimary,
+  threshold,
+  bgColor,
+  setCurrent,
+  sectionName,
+}) => {
   const [ref, inView] = useInView({ threshold });
   const boolVal = bgColor === secondary ? true : false;
   useEffect(() => {
     if (inView) {
       setIfPrimary(boolVal);
+      setCurrent(sectionName);
     }
-  }, [inView]);
+  }, [boolVal, sectionName, inView, setCurrent, setIfPrimary]);
 
   return ref;
 };

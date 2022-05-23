@@ -46,11 +46,13 @@ const AchievementElement = ({ achievement, i }) => {
 };
 
 // Component
-const Achievements = ({ achievements, setIfPrimary }) => {
+const Achievements = ({ achievements, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
-    threshold: 0.7,
+    setCurrent,
+    threshold: 0.8,
     bgColor: primary,
+    sectionName: "Achievements"
   });
   return (
     <section className="achievements" ref={ref}>

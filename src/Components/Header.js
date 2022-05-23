@@ -1,5 +1,5 @@
 // Libraries
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Burger button
@@ -8,8 +8,28 @@ import Burger from "./Burger";
 // Utils
 import { tween } from "../Utils/transitionMaker";
 import { slideInTopDownVariants } from "../Utils/variantMaker";
+import { primary } from "../Utils/colors";
 
-const Header = ({ name, sections, ifPrimary }) => {
+const NavElement = ({ handleClick, section, current }) => {
+  // now comes the style part
+  const style =
+    section.toLowerCase() === current.toLowerCase()
+      ? {
+          color: primary,
+        }
+      : null;
+  return (
+    <li
+      style={style}
+      key={section}
+      className="header-nav-option"
+      onClick={() => handleClick(section)}
+    >
+      {section}
+    </li>
+  );
+};
+const Header = ({ name, sections, ifPrimary, current }) => {
   // if nav menu is visible
   const [navVisible, setNavVisible] = useState(false);
   // represents if burger is cross
@@ -45,13 +65,12 @@ const Header = ({ name, sections, ifPrimary }) => {
           >
             <ul>
               {sections.map((section) => (
-                <li
+                <NavElement
                   key={section}
-                  className="header-nav-option"
-                  onClick={() => handleClick(section)}
-                >
-                  {section}
-                </li>
+                  section={section}
+                  handleClick={handleClick}
+                  current={current}
+                />
               ))}
             </ul>
           </motion.nav>

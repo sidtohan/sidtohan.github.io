@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 // Components
@@ -31,11 +31,13 @@ const AboutMePara = (dat, i) => {
   );
 };
 
-const About = ({ aboutMe, name, setIfPrimary }) => {
+const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
-    threshold: 0.7,
+    setCurrent,
+    threshold: 0.8,
     bgColor: secondary,
+    sectionName: "About",
   });
   const [displayTitle, setDisplayTitle] = useState(0);
   const titles = [

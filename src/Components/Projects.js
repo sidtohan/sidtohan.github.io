@@ -1,7 +1,6 @@
 // Libraries
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
+import { motion } from "framer-motion";
 
 // Components
 import SectionHeading from "./SectionHeading";
@@ -73,11 +72,13 @@ const ProjectElement = ({
   );
 };
 
-const Projects = ({ projects, setIfPrimary }) => {
+const Projects = ({ projects, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
-    threshold: 0.6,
+    setCurrent,
+    threshold: 0.8,
     bgColor: secondary,
+    sectionName: "Projects",
   });
   return (
     <section className="projects" ref={ref}>
