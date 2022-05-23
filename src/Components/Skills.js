@@ -1,21 +1,23 @@
 // Lib
 import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+
+// Components
+import SectionHeading from "./SectionHeading";
 
 // Utils
 import getIcon from "../Utils/iconMapper";
-import { spring, tween } from "../Utils/transitionMaker";
-import {
-  popInVariants,
-  expandUpVariants,
-  fadeInTopVariants,
-} from "../Utils/variantMaker";
-import { primary, secondary, fontColor } from "../Utils/colors";
+import { tween } from "../Utils/transitionMaker";
+import { expandUpVariants, fadeInTopVariants } from "../Utils/variantMaker";
+import { primary, secondary } from "../Utils/colors";
+
+// Hooks
+import useAnimationTrigger from "../CustomHooks/useAnimationTrigger";
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
 const SkillElement = ({ skill, i }) => {
-  const [ref, inView] = useInView({ threshold: 0.8 });
-  const controls = useAnimation();
+  const { ref, controls } = useAnimationTrigger({ threshold: 0.3 });
 
   const [hovering, hover] = useState(false);
   const style = hovering
@@ -24,12 +26,6 @@ const SkillElement = ({ skill, i }) => {
       }
     : null;
   const color = hovering ? primary : secondary;
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("animate");
-    }
-  }, [inView, controls]);
   return (
     <motion.div
       ref={ref}
@@ -59,20 +55,19 @@ const SkillElement = ({ skill, i }) => {
     </motion.div>
   );
 };
+
 // Skills Section
-const Skills = ({ skills }) => {
+const Skills = ({ skills, setIfPrimary }) => {
   // Skills is list of skills
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    threshold: 0.7,
+    bgColor: primary,
+  });
+
   return (
-    <section className="skills">
-      <motion.h2
-        className="section-heading"
-        variants={popInVariants}
-        initial="initial"
-        animate="animate"
-        transition={spring(1, 150)}
-      >
-        I am skilled in
-      </motion.h2>
+    <section className="skills" ref={ref}>
+      <SectionHeading text="I am skilled in" />
       <div className="skill-elements">
         {skills.map((skill, i) => (
           <SkillElement key={skill} skill={skill} i={i} />

@@ -1,5 +1,5 @@
 // Libraries
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 // Components
@@ -14,6 +14,7 @@ import Contacts from "./Components/Contacts";
 const App = () => {
   // Variables/ Props
   // Header
+  const [ifPrimary, setIfPrimary] = useState(true);
   const uname = "sidtohan";
   const sections = [
     "Home",
@@ -23,7 +24,6 @@ const App = () => {
     "Achievements",
     "Contacts",
   ];
-  const burgerRef = useRef(null);
 
   // Welcome
   const pic = "pfp.png";
@@ -100,13 +100,13 @@ const App = () => {
   // All The Required Refs
   return (
     <>
-      <Header sections={sections} name={uname} ref={burgerRef} />
-      <Welcome pic={pic} />
-      <About aboutMe={aboutMe} name={fname} />
-      <Skills skills={skills} />
-      <Projects projects={projects} />
-      <Achievements achievements={achievements} />
-      <Contacts contacts={contacts} />
+      <Header sections={sections} name={uname} ifPrimary={ifPrimary} />
+      <Welcome pic={pic} setIfPrimary={setIfPrimary} />
+      <About aboutMe={aboutMe} name={fname} setIfPrimary={setIfPrimary} />
+      <Skills skills={skills} setIfPrimary={setIfPrimary} />
+      <Projects projects={projects} setIfPrimary={setIfPrimary} />
+      <Achievements achievements={achievements} setIfPrimary={setIfPrimary} />
+      <Contacts contacts={contacts} setIfPrimary={setIfPrimary} />
     </>
   );
 };

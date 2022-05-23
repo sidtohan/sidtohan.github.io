@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// Variants
+// Components
+import SectionHeading from "./SectionHeading";
+
+// Utils
 import {
   slideInTopDownVariants,
   fadeInLeftVariants,
   popInVariants,
 } from "../Utils/variantMaker";
-
-// Transitions
 import { spring, tween } from "../Utils/transitionMaker";
+import { secondary } from "../Utils/colors";
+
+// Hooks
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
 const AboutMePara = (dat, i) => {
   return (
@@ -25,7 +30,13 @@ const AboutMePara = (dat, i) => {
     </motion.p>
   );
 };
-const About = ({ aboutMe, name }) => {
+
+const About = ({ aboutMe, name, setIfPrimary }) => {
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    threshold: 0.7,
+    bgColor: secondary,
+  });
   const [displayTitle, setDisplayTitle] = useState(0);
   const titles = [
     "Fullstack Developer",
@@ -38,17 +49,8 @@ const About = ({ aboutMe, name }) => {
   }, 2000);
 
   return (
-    <section className="about">
-      <motion.h2
-        className="section-heading"
-        variants={popInVariants}
-        initial="initial"
-        animate="animate"
-        transition={spring(1, 150)}
-      >
-        My name is
-      </motion.h2>
-
+    <section className="about" ref={ref}>
+      <SectionHeading text="My name is" />
       <motion.span
         className="about-name"
         variants={popInVariants}
@@ -56,7 +58,7 @@ const About = ({ aboutMe, name }) => {
         animate="animate"
         transition={spring(2, 150)}
       >
-        Siddhant Tohan
+        {name}
       </motion.span>
       <motion.p
         className="about-header"

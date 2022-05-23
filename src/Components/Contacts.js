@@ -1,7 +1,9 @@
 // Libs
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Components
+import SectionHeading from "./SectionHeading";
 
 // Utils
 import getIcon from "../Utils/iconMapper";
@@ -9,19 +11,17 @@ import { secondary, fontColor } from "../Utils/colors";
 import { fadeInTopVariants, popInVariants } from "../Utils/variantMaker";
 import { tween } from "../Utils/transitionMaker";
 
+// Custom Hooks
+import useAnimationTrigger from "../CustomHooks/useAnimationTrigger";
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
+
 const ContactElement = ({ contact }) => {
-  const [ref, inView] = useInView({ threshold: 0.9 });
-  const controls = useAnimation();
+  const { ref, controls } = useAnimationTrigger({ threshold: 0.3 });
 
   const [hovering, hover] = useState(false);
   // Some styling
   const color = hovering ? secondary : fontColor;
   const iconFam = contact.name === "Email" ? "dashicons" : "simple-icons";
-
-  useEffect(() => {
-    if (inView) controls.start("animate");
-  }, [inView, controls]);
-
   return (
     <motion.a
       href={contact.link}
@@ -56,10 +56,16 @@ const ContactElement = ({ contact }) => {
     </motion.a>
   );
 };
-const Contact = ({ contacts }) => {
+const Contact = ({ contacts, setIfPrimary }) => {
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    threshold: 0.7,
+    bgColor: secondary,
+  });
+
   return (
-    <section className="contacts">
-      <h2 className="section-heading">Contact me through</h2>
+    <section className="contacts" ref={ref}>
+      <SectionHeading text="Contact me through" />
       <div className="contact-elements-holder">
         {contacts.map((contact) => (
           <ContactElement contact={contact} key={contact.name} />

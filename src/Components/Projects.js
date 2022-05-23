@@ -3,13 +3,17 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+// Components
+import SectionHeading from "./SectionHeading";
+
 // Utils
-import {
-  popInVariants,
-  fadeInLeftVariants,
-  popInLeftVariants,
-} from "../Utils/variantMaker";
-import { spring, tween } from "../Utils/transitionMaker";
+import { fadeInLeftVariants, popInLeftVariants } from "../Utils/variantMaker";
+import { spring } from "../Utils/transitionMaker";
+import { secondary } from "../Utils/colors";
+
+// Custom Hooks
+import useAnimationTrigger from "../CustomHooks/useAnimationTrigger";
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
 const ProjectElement = ({
   projectName,
@@ -18,14 +22,7 @@ const ProjectElement = ({
   repoLink,
   i,
 }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.9 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("animate");
-    }
-  }, [controls, inView]);
+  const { ref, controls } = useAnimationTrigger({ threshold: 0.8 });
   return (
     <div className="project-element" ref={ref}>
       <motion.h3
@@ -76,18 +73,15 @@ const ProjectElement = ({
   );
 };
 
-const Projects = ({ projects }) => {
+const Projects = ({ projects, setIfPrimary }) => {
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    threshold: 0.6,
+    bgColor: secondary,
+  });
   return (
-    <section className="projects">
-      <motion.h2
-        className="section-heading"
-        variants={popInVariants}
-        initial="initial"
-        animate="animate"
-        transition={spring(1, 150)}
-      >
-        I have worked on
-      </motion.h2>
+    <section className="projects" ref={ref}>
+      <SectionHeading text="I have worked on" />
       <div className="project-element-holder">
         {projects.map((project, i) => (
           <ProjectElement

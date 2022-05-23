@@ -4,11 +4,12 @@
 @mixin style {
   header {
     z-index: 5;
-    position: relative;
     width: 100%;
     padding: 0.2rem;
     color: $font-color;
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .header-name {
     z-index: 5;
@@ -31,18 +32,21 @@
       transform: translate(-50%, -50%);
       list-style: none;
       li {
+        cursor: pointer;
         margin: 0.1rem 0;
       }
     }
   }
   .burger-button {
     z-index: 6;
-    position: absolute;
+    position: fixed;
     right: 0.2rem;
     top: 0.2rem;
     height: 0.6rem;
     width: 0.6rem;
     border-radius: 50%;
+    border: none;
+    cursor: pointer;
 
     .burger-button-line {
       position: absolute;

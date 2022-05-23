@@ -9,7 +9,7 @@ import Burger from "./Burger";
 import { tween } from "../Utils/transitionMaker";
 import { slideInTopDownVariants } from "../Utils/variantMaker";
 
-const Header = React.forwardRef(({ name, sections }, ref) => {
+const Header = ({ name, sections, ifPrimary }) => {
   // if nav menu is visible
   const [navVisible, setNavVisible] = useState(false);
   // represents if burger is cross
@@ -30,6 +30,7 @@ const Header = React.forwardRef(({ name, sections }, ref) => {
         navVisible={navVisible}
         burgerCross={burgerCross}
         setBurgerCross={setBurgerCross}
+        ifPrimary={ifPrimary}
       />
       <h1 className="header-name">{name}</h1>
       <AnimatePresence>
@@ -58,6 +59,6 @@ const Header = React.forwardRef(({ name, sections }, ref) => {
       </AnimatePresence>
     </header>
   );
-});
+};
 
 export default Header;

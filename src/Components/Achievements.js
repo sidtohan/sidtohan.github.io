@@ -1,22 +1,22 @@
 // Libs
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
+import { motion } from "framer-motion";
+
+// Components
+import SectionHeading from "./SectionHeading";
 
 // Utils
+import { primary } from "../Utils/colors";
 import { popInVariants, fadeInRightVariants } from "../Utils/variantMaker";
 import getIcon from "../Utils/iconMapper";
 import { spring } from "../Utils/transitionMaker";
 
-const AchievementElement = ({ achievement, i }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.9 });
+// Custom Hooks
+import useAnimationTrigger from "../CustomHooks/useAnimationTrigger";
+import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("animate");
-    }
-  }, [controls, inView]);
+const AchievementElement = ({ achievement, i }) => {
+  const { ref, controls } = useAnimationTrigger({ threshold: 0.3 });
   return (
     <div
       className="achievement-element"
@@ -44,27 +44,17 @@ const AchievementElement = ({ achievement, i }) => {
     </div>
   );
 };
-// Component
-const Achievements = ({ achievements }) => {
-  const [ref, inView] = useInView();
-  const controls = useAnimation();
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("animate");
-    }
-  }, [controls, inView]);
+// Component
+const Achievements = ({ achievements, setIfPrimary }) => {
+  const ref = useSectionTrigger({
+    setIfPrimary,
+    threshold: 0.7,
+    bgColor: primary,
+  });
   return (
-    <section className="achievements">
-      <motion.h2
-        className="section-heading"
-        ref={ref}
-        variants={popInVariants}
-        initial="initial"
-        animate={controls}
-      >
-        I have achieved
-      </motion.h2>
+    <section className="achievements" ref={ref}>
+      <SectionHeading text="I have achieved" />
       <div className="achievements-holder">
         <div
           className="achievements-holder-line"
