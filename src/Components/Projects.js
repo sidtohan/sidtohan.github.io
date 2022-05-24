@@ -76,7 +76,7 @@ const Projects = ({ projects, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
     setCurrent,
-    threshold: 0.8,
+    threshold: 0.5,
     bgColor: secondary,
     sectionName: "Projects",
   });

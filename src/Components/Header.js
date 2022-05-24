@@ -36,7 +36,6 @@ const Header = ({ name, sections, ifPrimary, current }) => {
   const [burgerCross, setBurgerCross] = useState(false);
   const handleClick = (section) => {
     section = section.toLowerCase();
-    if (section === "home") section = "welcome";
     const reqDiv = document.querySelector(`.${section}`);
     reqDiv.scrollIntoView({ behavior: "smooth" });
     setNavVisible(false);

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 // Components
 import SectionHeading from "./SectionHeading";
+import SpinCoin from "./SpinCoin";
 
 // Utils
 import {
@@ -16,10 +17,10 @@ import { secondary } from "../Utils/colors";
 // Hooks
 import useSectionTrigger from "../CustomHooks/useSectionTrigger";
 
-const AboutMePara = (dat, i) => {
+const InfoPara = (dat, i) => {
   return (
     <motion.p
-      className="about-para"
+      className="home-para"
       key={i}
       variants={fadeInLeftVariants}
       initial="initial"
@@ -31,13 +32,13 @@ const AboutMePara = (dat, i) => {
   );
 };
 
-const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
+const Home = ({ aboutMe, name, setIfPrimary, setCurrent, pic }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
     setCurrent,
-    threshold: 0.8,
+    threshold: 0.5,
     bgColor: secondary,
-    sectionName: "About",
+    sectionName: "Home",
   });
   const [displayTitle, setDisplayTitle] = useState(0);
   const titles = [
@@ -51,10 +52,11 @@ const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
   }, 2000);
 
   return (
-    <section className="about" ref={ref}>
+    <section className="home" ref={ref}>
+      <SpinCoin pic={pic} />
       <SectionHeading text="My name is" />
       <motion.span
-        className="about-name"
+        className="home-name"
         variants={popInVariants}
         initial="initial"
         animate="animate"
@@ -63,7 +65,7 @@ const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
         {name}
       </motion.span>
       <motion.p
-        className="about-header"
+        className="home-header"
         variants={fadeInLeftVariants}
         initial="initial"
         animate="animate"
@@ -72,7 +74,7 @@ const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
         I'm a{" "}
         <AnimatePresence exitBeforeEnter>
           <motion.span
-            className="about-title"
+            className="home-title"
             variants={slideInTopDownVariants}
             initial="initial"
             animate="animate"
@@ -84,8 +86,8 @@ const About = ({ aboutMe, name, setIfPrimary, setCurrent }) => {
           </motion.span>
         </AnimatePresence>
       </motion.p>
-      {aboutMe.map((dat, i) => AboutMePara(dat, i))}
+      {aboutMe.map((dat, i) => InfoPara(dat, i))}
     </section>
   );
 };
-export default About;
+export default Home;

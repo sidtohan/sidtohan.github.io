@@ -4,8 +4,8 @@
 
 // Partials
 @use "components/header" as header;
-@use "components/welcome" as welcome;
-@use "components/about" as about;
+@use "components/coin" as coin;
+@use "components/home" as home;
 @use "components/skills" as skills;
 @use "components/projects" as projects;
 @use "components/achievements" as achievements;
@@ -32,8 +32,8 @@
   }
   // Include the Mixin of all the required styles
   @include header.style;
-  @include welcome.style;
-  @include about.style;
+  @include coin.style;
+  @include home.style;
   @include skills.style;
   @include projects.style;
   @include achievements.style;

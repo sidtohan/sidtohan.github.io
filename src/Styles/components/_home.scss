@@ -2,7 +2,7 @@
 @use "../abstracts/forward" as *;
 
 @mixin style {
-  .about {
+  .home {
     overflow: hidden;
     font-size: $fontSizeSmall;
     background-color: $secondary;
@@ -12,21 +12,21 @@
     .section-heading {
       margin-bottom: 0;
     }
-    .about-name {
+    .home-name {
       display: block;
       color: $primary;
       font-size: $fontSizeMedium;
       font-weight: 700;
       margin-bottom: 0.2rem;
     }
-    .about-header {
+    .home-header {
       white-space: nowrap;
-      .about-title {
+      .home-title {
         display: inline-block;
         text-shadow: 0.01rem 0.01rem 0.02rem $primary;
       }
     }
-    .about-para {
+    .home-para {
       margin: 0.2rem 0;
     }
   }

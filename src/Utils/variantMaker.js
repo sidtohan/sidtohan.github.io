@@ -1,3 +1,5 @@
+import { primary, secondary } from "./colors";
+
 // Slide In Top Down
 export const slideInTopDownVariants = {
   initial: {
@@ -100,5 +102,15 @@ export const burgerButtonVariants = {
   },
   cross: {
     rotateZ: -45,
+  },
+};
+
+// Color Transition
+export const colorBurgerTransitionVariants = {
+  primary: {
+    backgroundColor: primary,
+  },
+  secondary: {
+    backgroundColor: secondary,
   },
 };

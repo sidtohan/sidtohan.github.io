@@ -2,7 +2,8 @@
 @use "../abstracts/colors" as *;
 
 @mixin style {
-  .welcome {
+  .coin {
+    margin-top: 0.52rem;
     background-color: $secondary;
     height: 50vh;
   }

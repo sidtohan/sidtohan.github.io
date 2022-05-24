@@ -50,7 +50,7 @@ const Achievements = ({ achievements, setIfPrimary, setCurrent }) => {
   const ref = useSectionTrigger({
     setIfPrimary,
     setCurrent,
-    threshold: 0.8,
+    threshold: 0.5,
     bgColor: primary,
     sectionName: "Achievements"
   });

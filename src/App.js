@@ -3,8 +3,7 @@ import React, { useState } from "react";
 
 // Components
 import Header from "./Components/Header";
-import Welcome from "./Components/Welcome";
-import About from "./Components/About";
+import Home from "./Components/Home";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Achievements from "./Components/Achievements";
@@ -17,14 +16,7 @@ const App = () => {
   const [current, setCurrent] = useState(true);
 
   const uname = "sidtohan";
-  const sections = [
-    "Home",
-    "About",
-    "Skills",
-    "Projects",
-    "Achievements",
-    "Contacts",
-  ];
+  const sections = ["Home", "Skills", "Projects", "Achievements", "Contacts"];
 
   // Welcome
   const pic = "pfp.png";
@@ -107,12 +99,12 @@ const App = () => {
         ifPrimary={ifPrimary}
         current={current}
       />
-      <Welcome pic={pic} setIfPrimary={setIfPrimary} setCurrent={setCurrent} />
-      <About
+      <Home
         aboutMe={aboutMe}
         name={fname}
         setIfPrimary={setIfPrimary}
         setCurrent={setCurrent}
+        pic={pic}
       />
       <Skills
         skills={skills}

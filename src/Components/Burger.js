@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Utils
 import { burgerButtonVariants } from "../Utils/variantMaker";
+import { colorBurgerTransitionVariants } from "../Utils/variantMaker";
 import { tween } from "../Utils/transitionMaker";
-import { primary, secondary, fontColor } from "../Utils/colors";
+import { secondary, fontColor } from "../Utils/colors";
 
 // Burger Line
 const BurgerLine = ({ lineColor, initial, animate }) => {
@@ -39,26 +40,31 @@ const Burger = ({
   const initial = burgerCross ? "line" : "cross";
   const animate = burgerCross ? "cross" : "line";
 
-  // if currently set to primary, bg color is primary
-  const bgColor = ifPrimary ? primary : secondary;
-  const lineColor = ifPrimary ? secondary : fontColor;
+  // store the variants
+  const initVariant = ifPrimary ? "secondary" : "primary";
+  const animateVariant = ifPrimary ? "primary" : "secondary";
 
+  const lineColor = ifPrimary ? secondary : fontColor;
   return (
-    <button
-      className="burger-button"
-      onClick={handleClick}
-      style={{ backgroundColor: bgColor }}
-      key={ifPrimary}
-    >
-      {[1, 2, 3].map((val) => (
-        <BurgerLine
-          key={val}
-          lineColor={lineColor}
-          initial={initial}
-          animate={animate}
-        />
-      ))}
-    </button>
+    <AnimatePresence exitBeforeEnter>
+      <motion.button
+        className="burger-button"
+        onClick={handleClick}
+        key={ifPrimary}
+        variants={colorBurgerTransitionVariants}
+        initial={initVariant}
+        animate={animateVariant}
+      >
+        {[1, 2, 3].map((val) => (
+          <BurgerLine
+            key={val}
+            lineColor={lineColor}
+            initial={initial}
+            animate={animate}
+          />
+        ))}
+      </motion.button>
+    </AnimatePresence>
   );
 };
 export default Burger;
