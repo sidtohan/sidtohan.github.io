@@ -64,29 +64,31 @@ const Home = ({ aboutMe, name, setIfPrimary, setCurrent, pic }) => {
       >
         {name}
       </motion.span>
-      <motion.p
-        className="home-header"
-        variants={fadeInLeftVariants}
-        initial="initial"
-        animate="animate"
-        transition={spring(3, 150)}
-      >
-        I'm a{" "}
-        <AnimatePresence exitBeforeEnter>
-          <motion.span
-            className="home-title"
-            variants={slideInTopDownVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            key={titles[displayTitle]}
-            transition={tween(0)}
-          >
-            {titles[displayTitle]}
-          </motion.span>
-        </AnimatePresence>
-      </motion.p>
-      {aboutMe.map((dat, i) => InfoPara(dat, i))}
+      <p>
+        <motion.p
+          className="home-header"
+          variants={fadeInLeftVariants}
+          initial="initial"
+          animate="animate"
+          transition={spring(3, 150)}
+        >
+          I'm a{" "}
+          <AnimatePresence exitBeforeEnter>
+            <motion.span
+              className="home-title"
+              variants={slideInTopDownVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              key={titles[displayTitle]}
+              transition={tween(0)}
+            >
+              {titles[displayTitle]}
+            </motion.span>
+          </AnimatePresence>
+        </motion.p>
+        {aboutMe.map((dat, i) => InfoPara(dat, i))}
+      </p>
     </section>
   );
 };

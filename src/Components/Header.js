@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Burger button
@@ -29,9 +29,67 @@ const NavElement = ({ handleClick, section, current }) => {
     </li>
   );
 };
+
+// Mobile Nav List
+const MobileNavList = ({ sections, current, handleClick, navVisible }) => {
+  return (
+    <AnimatePresence>
+      {navVisible ? (
+        <motion.nav
+          className="header-nav"
+          variants={slideInTopDownVariants}
+          initial="initial"
+          animate="animate"
+          exit="initial"
+          transition={tween(0)}
+        >
+          <ul>
+            {sections.map((section) => (
+              <NavElement
+                key={section}
+                section={section}
+                handleClick={handleClick}
+                current={current}
+              />
+            ))}
+          </ul>
+        </motion.nav>
+      ) : null}
+    </AnimatePresence>
+  );
+};
+
+// Desktop Nav List
+const DesktopNavList = ({ sections, current, handleClick }) => {
+  return (
+    <nav className="header-nav">
+      <ul>
+        {sections.map((section) => (
+          <NavElement
+            key={section}
+            section={section}
+            handleClick={handleClick}
+            current={current}
+          />
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
 const Header = ({ name, sections, ifPrimary, current }) => {
   // if nav menu is visible
   const [navVisible, setNavVisible] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  // Desktop Width
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  // if currently viewing desktop
+  const ifDesktop = width >= 864;
+
   // represents if burger is cross
   const [burgerCross, setBurgerCross] = useState(false);
   const handleClick = (section) => {
@@ -44,6 +102,7 @@ const Header = ({ name, sections, ifPrimary, current }) => {
 
   return (
     <header>
+      <h1 className="header-name">{name}</h1>
       <Burger
         setNavVisible={setNavVisible}
         navVisible={navVisible}
@@ -51,30 +110,20 @@ const Header = ({ name, sections, ifPrimary, current }) => {
         setBurgerCross={setBurgerCross}
         ifPrimary={ifPrimary}
       />
-      <h1 className="header-name">{name}</h1>
-      <AnimatePresence>
-        {navVisible ? (
-          <motion.nav
-            className="header-nav"
-            variants={slideInTopDownVariants}
-            initial="initial"
-            animate="animate"
-            exit="initial"
-            transition={tween(0)}
-          >
-            <ul>
-              {sections.map((section) => (
-                <NavElement
-                  key={section}
-                  section={section}
-                  handleClick={handleClick}
-                  current={current}
-                />
-              ))}
-            </ul>
-          </motion.nav>
-        ) : null}
-      </AnimatePresence>
+      {ifDesktop ? (
+        <DesktopNavList
+          sections={sections}
+          current={current}
+          handleClick={handleClick}
+        />
+      ) : (
+        <MobileNavList
+          sections={sections}
+          current={current}
+          handleClick={handleClick}
+          navVisible={navVisible}
+        />
+      )}
     </header>
   );
 };

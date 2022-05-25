@@ -1,0 +1,71 @@
+// Forward file
+@use "../abstracts/forward" as *;
+
+@mixin style {
+  @media screen and (min-width: 864px) {
+    // Header
+    header {
+      padding: 0.2rem 5%;
+      position: fixed;
+      background-color: $secondary;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-name {
+      font-size: $fontSizeDMedSmall !important;
+    }
+    // Burger
+    .burger-button {
+      display: none;
+    }
+
+    // Nav
+    .header-nav {
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: auto;
+      ul {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        display: flex;
+        gap: 0.2rem;
+      }
+    }
+
+    // Home
+    .home {
+      margin: 0 auto;
+      padding-top: 1.3rem;
+      padding-bottom: 1rem;
+      padding-right: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      font-size: $fontSizeDSmall;
+      .section-heading {
+        font-size: $fontSizeDLarge;
+        grid-row: 1/2;
+        grid-column: 1/2;
+      }
+      .home-name {
+        font-size: $fontSizeDMedium;
+      }
+      .coin {
+        margin: 0;
+        grid-column: 2/3;
+        grid-row: 1/4;
+        align-self: center;
+        min-width: 100%;
+      }
+    }
+  }
+}

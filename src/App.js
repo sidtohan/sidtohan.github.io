@@ -13,7 +13,7 @@ const App = () => {
   // Variables/ Props
   // Header
   const [ifPrimary, setIfPrimary] = useState(true);
-  const [current, setCurrent] = useState(true);
+  const [current, setCurrent] = useState("Home");
 
   const uname = "sidtohan";
   const sections = ["Home", "Skills", "Projects", "Achievements", "Contacts"];
@@ -25,7 +25,7 @@ const App = () => {
   const fname = "Siddhant Tohan";
   const aboutMe = [
     `
-  Currently learning more about the MERN Stack, and many other technologies.
+  Currently learning more about the MERN Stack, and many other related technologies. Experienced in HTML,CSS,Javascript and React. Always willing to learn more as the situation demands.
   
   `,
     `Pursuing a B.Tech degree from Netaji Subhas University of Technology in the field of Mathematics and Computing.`,

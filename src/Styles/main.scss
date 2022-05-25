@@ -2,6 +2,9 @@
 @use "abstracts/typography" as fonts;
 @use "abstracts/colors" as colors;
 
+// Responsive
+@use "base/responsive" as responsive;
+
 // Partials
 @use "components/header" as header;
 @use "components/coin" as coin;
@@ -38,6 +41,9 @@
   @include projects.style;
   @include achievements.style;
   @include contacts.style;
+
+  // Responsive Style
+  @include responsive.style;
 }
 
 body,
