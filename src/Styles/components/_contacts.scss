@@ -4,6 +4,7 @@
 @mixin style {
   .contacts {
     font-size: $fontSizeMedSmall;
+    padding-bottom: 0;
 
     .section-heading {
       color: $font-color;

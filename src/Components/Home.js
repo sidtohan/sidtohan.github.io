@@ -64,7 +64,7 @@ const Home = ({ aboutMe, name, setIfPrimary, setCurrent, pic }) => {
       >
         {name}
       </motion.span>
-      <p>
+      <div>
         <motion.p
           className="home-header"
           variants={fadeInLeftVariants}
@@ -88,7 +88,7 @@ const Home = ({ aboutMe, name, setIfPrimary, setCurrent, pic }) => {
           </AnimatePresence>
         </motion.p>
         {aboutMe.map((dat, i) => InfoPara(dat, i))}
-      </p>
+      </div>
     </section>
   );
 };

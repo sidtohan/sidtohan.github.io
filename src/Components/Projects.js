@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
 // Utils
-import { fadeInLeftVariants, popInLeftVariants } from "../Utils/variantMaker";
+import { fadeInLeftVariants, fadeInRightVariants } from "../Utils/variantMaker";
 import { spring } from "../Utils/transitionMaker";
 import { secondary } from "../Utils/colors";
 
@@ -26,7 +26,7 @@ const ProjectElement = ({
     <div className="project-element" ref={ref}>
       <motion.h3
         className="project-element-heading"
-        variants={popInLeftVariants}
+        variants={fadeInRightVariants}
         initial="initial"
         animate={controls}
         transition={spring(0, 150)}

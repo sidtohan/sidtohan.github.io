@@ -8,6 +8,7 @@ import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Achievements from "./Components/Achievements";
 import Contacts from "./Components/Contacts";
+import Footer from "./Components/Footer";
 
 const App = () => {
   // Variables/ Props
@@ -126,6 +127,7 @@ const App = () => {
         setIfPrimary={setIfPrimary}
         setCurrent={setCurrent}
       />
+      <Footer />
     </>
   );
 };

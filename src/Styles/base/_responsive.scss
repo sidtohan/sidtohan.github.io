@@ -3,6 +3,16 @@
 
 @mixin style {
   @media screen and (min-width: 864px) {
+    // Common Style
+    .section-heading {
+      width: fit-content;
+      font-size: $fontSizeDLarge;
+      margin-bottom: 0.4rem;
+    }
+    section {
+      padding-top: 0.8rem;
+      padding-bottom: 1rem;
+    }
     // Header
     header {
       padding: 0.2rem 5%;
@@ -44,17 +54,15 @@
 
     // Home
     .home {
-      margin: 0 auto;
       padding-top: 1.3rem;
-      padding-bottom: 1rem;
       padding-right: 0;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       font-size: $fontSizeDSmall;
       .section-heading {
-        font-size: $fontSizeDLarge;
         grid-row: 1/2;
         grid-column: 1/2;
+        margin-bottom: 0;
       }
       .home-name {
         font-size: $fontSizeDMedium;
@@ -65,6 +73,91 @@
         grid-row: 1/4;
         align-self: center;
         min-width: 100%;
+      }
+    }
+
+    // Skills
+    .skills {
+      .skill-elements {
+        margin: 0 auto;
+        width: 60%;
+        grid-template-columns: repeat(3, minmax(auto, 1fr));
+      }
+      .skill-element {
+        min-width: 0;
+        width: 70%;
+        width: min(80%, 1.5rem);
+        .skill-element-text {
+          font-size: $fontSizeDSmall;
+        }
+      }
+
+      .skill-element:nth-of-type(4n + 1) {
+        grid-column: 1/2;
+      }
+      .skill-element:nth-of-type(4n + 2) {
+        grid-column: 2/3;
+      }
+      .skill-element:nth-of-type(4n + 3) {
+        grid-column: 3/4;
+      }
+      .skill-element:nth-of-type(4n) {
+        grid-column: 2/2;
+      }
+    }
+
+    // Projects
+    .projects {
+      .project-element {
+        .project-element-heading {
+          font-size: $fontSizeDMedium;
+        }
+        .project-element-text,
+        .project-element-live-link,
+        .project-element-repo-link {
+          font-size: $fontSizeDSmall;
+        }
+      }
+    }
+
+    // Achievements
+    .achievements {
+      .achievements-holder {
+        width: 60%;
+        margin: 0 auto;
+        grid-row-gap: 1rem;
+      }
+      .achievements-holder-line {
+        width: 0.15rem;
+        height: 110%;
+      }
+      .achievement-element {
+        .achievement-element-text {
+          padding: 0.4rem 0.25rem;
+          font-size: $fontSizeDMedSmall;
+        }
+      }
+    }
+
+    // Contacts
+    .contacts {
+      padding-bottom: 0;
+      .contact-elements-holder {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 8rem;
+        .contact-element {
+          .contact-element-text {
+            font-size: $fontSizeDSmall;
+          }
+        }
+      }
+    }
+
+    // Footer
+    footer {
+      .footer-text {
+        font-size: $fontSizeMedSmall;
+        font-weight: bold;
       }
     }
   }

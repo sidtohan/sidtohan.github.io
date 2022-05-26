@@ -2,8 +2,9 @@
 @use "abstracts/typography" as fonts;
 @use "abstracts/colors" as colors;
 
-// Responsive
+// Base
 @use "base/responsive" as responsive;
+@use "base/scrollbar" as scrollbar;
 
 // Partials
 @use "components/header" as header;
@@ -13,6 +14,7 @@
 @use "components/projects" as projects;
 @use "components/achievements" as achievements;
 @use "components/contacts" as contacts;
+@use "components/footer" as footer;
 
 // Google API Call
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap");
@@ -41,6 +43,7 @@
   @include projects.style;
   @include achievements.style;
   @include contacts.style;
+  @include footer.style;
 
   // Responsive Style
   @include responsive.style;
@@ -52,4 +55,7 @@ html {
   font-family: fonts.$fontfam;
   width: 100%;
   height: 100%;
+
+  // Scrollbar
+  @include scrollbar.style;
 }
